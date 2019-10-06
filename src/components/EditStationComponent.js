@@ -100,7 +100,8 @@ export default class Edit extends Component {
                       onChange={this.onChangeStationCity}
                       />
                 </div>
-               { // TODO: Fixa en mappning som irreterar igenom response, och lägger kryss i rätt ruta.}
+               { // TODO: Fixa en mappning som irreterar igenom response, och lägger kryss i rätt ruta.
+               }
                 <div className="form-group">
                 <label> Station Fueltypes:<br />
                         <input type="checkbox" className="form-check-input" value="E85" checked={this.state.checked} onChange={this.onChangeCheck}/>
