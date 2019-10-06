@@ -28,7 +28,7 @@ class TableRow extends Component {
             {this.props.obj.station_city}
           </td>
           <td>
-            {this.props.obj.business_gst_number}
+            {this.props.obj.station_fueltypes}
           </td>
           <td>
           <Link to={"/edit/"+this.props.obj._id} className="btn btn-primary">Edit</Link>

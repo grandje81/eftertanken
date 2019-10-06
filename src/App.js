@@ -5,15 +5,20 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 //import './index.css';
 import { BrowserRouter as Router, Switch, Route, Link} from 'react-router-dom';
 
+// Old Business stuff
+
 //import Create from './components/createComponent';  
-import Edit from './components/editComponent';
+//import Edit from './components/editComponent';
 import Index from './components/indexComponent';
 // Accounts
 import createAccount from './components/createAccountComponent';
-import CreateStation from './components/CreateStationComponent';
+
 import listLogins from './components/listLoginsComponent';
 import editAccount from './components/adminEditComponent';
 
+// Stations
+import CreateStation from './components/CreateStationComponent';
+import EditStation from './components/EditStationComponent';
 // Logins
   import Login from './components/loginComponent';
 
@@ -53,7 +58,7 @@ class App extends Component {
           <h1 className="mt-5">Välkommen till eftertanken!</h1>
           <Switch>
             <Route exact path='/create' component={ CreateStation } />
-            <Route path='/edit/:id' component={ Edit } />
+            <Route path='/edit/:id' component={ EditStation } />
             <Route path='/index' component={ Index } />
             <Route path='/user/login' component={ Login } /> 
             <Route path='/admin/logins' component={ listLogins } />

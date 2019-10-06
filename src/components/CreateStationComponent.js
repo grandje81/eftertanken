@@ -60,15 +60,15 @@ export default class CreateStation extends Component {
                 <form onSubmit={this.onSubmit}>
                     <div className="form-group">
                         <label>Add Station Name: </label>
-                        <input type="text" className="form-control" value={this.person_name} onChange={this.onChangePersonName} />
+                        <input type="text" className="form-control" value={this.station_name} onChange={this.onChangeStation_Name} />
                     </div>
                     <div className="form-group">
                         <label>Add Station City: </label>
-                        <input type="text" className="form-control" value={this.business_name} onChange={this.onChangeBusinessName} />
+                        <input type="text" className="form-control" value={this.station_city} onChange={this.onChangeStation_City} />
                     </div>
                     <div className="form-group">
                         <label>Add Station Fueltypes: </label>
-                        <input type="text" className="form-control" value={this.business_gst_number} onChange={this.onChangeGSTNumber} />
+                        <input type="text" className="form-control" value={this.station_fueltypes} onChange={this.onChangeStation_Fueltypes} />
                     </div>
                     <div className="form-group">
                         <input type="submit" value="Register Station" className="btn btn-primary" />

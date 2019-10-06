@@ -26,6 +26,7 @@ router.route('/').get(function (req, res) {
 
 router.route('/add').post(function (req, res) {
     let station = new Station(req.body);
+    console.log(station);
     station.save()
       .then(station => {
         res.status(200).json({'station': 'Station was added successfully'});
