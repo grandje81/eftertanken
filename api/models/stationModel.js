@@ -9,7 +9,7 @@ const stationSchema = new mongoose.Schema({
         type: String
     }, 
     station_fueltypes: {
-        type: String
+        type: Array
     }
 /*},{
     collection: 'business' */

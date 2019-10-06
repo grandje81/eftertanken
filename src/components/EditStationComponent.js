@@ -8,13 +8,14 @@ export default class Edit extends Component {
     super(props);
     this.onChangeStationName = this.onChangeStationName.bind(this);
     this.onChangeStationCity = this.onChangeStationCity.bind(this);
-    this.onChangeStationFueltypes = this.onChangeStationFueltypes.bind(this);
+    this.onChangeCheck = this.onChangeCheck.bind(this);
     this.onSubmit = this.onSubmit.bind(this);
 
     this.state = {
       station_name: '',
       station_city: '',
-      station_fueltypes:''
+      station_fueltypes: [],
+      options: []
     }
   }
 
@@ -34,7 +35,7 @@ export default class Edit extends Component {
     componentDidUpdate() {
         axios.get('http://localhost:4000/station/index')
         .then(response => {
-        this.setState({ business: response.data });
+        this.setState({ station: response.data });
             })
             .catch(function (error) {
             console.log(error);
@@ -50,9 +51,17 @@ export default class Edit extends Component {
       station_city: e.target.value
     })  
   }
-  onChangeStationFueltypes(e) {
+  onChangeCheck(e) {
+    const options = this.state.options
+    let index
+    if(e.target.checked) {
+      options.push(e.target.value);
+    } else {
+      index = options.indexOf(e.target.value);
+      options.splice(index, 1);
+    }
     this.setState({
-      station_fueltypes: e.target.value
+      station_fueltypes: options
     })
   }
 
@@ -61,12 +70,12 @@ export default class Edit extends Component {
     const obj = {
       station_name: this.state.station_name,
       station_city: this.state.station_city,
-      station_fueltypes: this.state.station_fueltypes
+      station_fueltypes: this.state.options
     };
     axios.post('http://localhost:4000/station/update/'+this.props.match.params.id, obj)
         .then(res => console.log(res.data));
     
-    this.props.history.push('/index');
+    this.props.history.push('/station/index');
   }
  
   render() {
@@ -91,13 +100,24 @@ export default class Edit extends Component {
                       onChange={this.onChangeStationCity}
                       />
                 </div>
+               { // TODO: Fixa en mappning som irreterar igenom response, och lägger kryss i rätt ruta.}
                 <div className="form-group">
-                    <label>Station Fueltypes: </label>
-                    <input type="text" 
-                      className="form-control"
-                      value={this.state.station_fueltypes}
-                      onChange={this.onChangeStationFueltypes}
-                      />
+                <label> Station Fueltypes:<br />
+                        <input type="checkbox" className="form-check-input" value="E85" checked={this.state.checked} onChange={this.onChangeCheck}/>
+                        <span>E85</span>
+                        <br />
+                        <input type="checkbox" className="form-check-input" value="95" checked={this.state.checked} onChange={this.onChangeCheck}/>
+                        <span>95</span>
+                        <br />
+                        <input type="checkbox" className="form-check-input" value="98" checked={this.state.checked} onChange={this.onChangeCheck}/>
+                        <span>98</span>
+                        <br />
+                        <input type="checkbox" className="form-check-input" value="Biodiesel" checked={this.state.checked} onChange={this.onChangeCheck}/>
+                        <span>Bio Diesel</span>
+                        <br />
+                        <input type="checkbox" className="form-check-input" value="Diesel" checked={this.state.checked} onChange={this.onChangeCheck} />
+                        <span>Diesel</span>
+                    </label>
                 </div>
                 <div className="form-group">
                     <input type="submit" 

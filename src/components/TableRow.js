@@ -14,7 +14,7 @@ class TableRow extends Component {
         axios.get('http://localhost:4000/station/delete/'+this.props.obj._id)
             .then(res => {
               console.log('Deleted');
-              this.props.delete(this.props.indice);
+              //this.props.delete(this.props.indice);
             })
             .catch(err => console.log(err))
     }
@@ -28,7 +28,13 @@ class TableRow extends Component {
             {this.props.obj.station_city}
           </td>
           <td>
-            {this.props.obj.station_fueltypes}
+            {this.props.obj.station_fueltypes.map((data, index) => {
+              return(
+                <p key={index}>
+                  {data}
+                  </p>
+              );
+            })}
           </td>
           <td>
           <Link to={"/edit/"+this.props.obj._id} className="btn btn-primary">Edit</Link>

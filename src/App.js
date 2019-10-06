@@ -40,7 +40,7 @@ class App extends Component {
                     <Link to={'/create'} className="nav-link navbarSupportedContent">Registera bensinstation</Link>
                 </li>
                 <li className="nav-item">
-                  <Link to={'/index'} className="nav-link">Lista bensinstationer</Link>
+                  <Link to={'/station/index'} className="nav-link">Lista bensinstationer</Link>
                 </li>
                 <li className="nav-item">
                     <Link to={'/admin/add'} className="nav-link">Skapa konto</Link>
@@ -59,7 +59,7 @@ class App extends Component {
           <Switch>
             <Route exact path='/create' component={ CreateStation } />
             <Route path='/edit/:id' component={ EditStation } />
-            <Route path='/index' component={ Index } />
+            <Route path='/station/index' component={ Index } />
             <Route path='/user/login' component={ Login } /> 
             <Route path='/admin/logins' component={ listLogins } />
             <Route path='/admin/editAccount/:id' component={ editAccount } />

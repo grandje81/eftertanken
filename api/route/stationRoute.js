@@ -24,6 +24,19 @@ router.route('/').get(function (req, res) {
   });
 });
 
+router.route('/index').get(function (req, res) {
+  // eslint-disable-next-line array-callback-return
+  Station.find(function(err, stations){
+  if(err){
+    console.log(err);
+  }
+  else {
+    res.json(stations);
+  }
+});
+});
+
+
 router.route('/add').post(function (req, res) {
     let station = new Station(req.body);
     console.log(station);
