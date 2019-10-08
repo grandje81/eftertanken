@@ -57,7 +57,7 @@ router.route('/edit/:id').get(function (req, res) {
     });
   });
   
-router.route('/update/:id').post(function (req, res) {
+router.route('/update/:id').put(function (req, res) {
       Station.findById(req.params.id, function(err, station) {
       if (!station)
         res.status(404).send("data is not found");

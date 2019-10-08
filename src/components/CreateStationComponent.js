@@ -32,6 +32,7 @@ export default class CreateStation extends Component {
     onChangeCheck(e) {
         const options = this.state.options
         let index
+        let id = e.target.id
         if(e.target.checked) {
             options.push(e.target.value);
         } else {
@@ -81,20 +82,23 @@ export default class CreateStation extends Component {
                     </div>
                     <div className="form-group">
                     <label> Station Fueltypes:<br />
-                        <input type="checkbox" className="form-check-input" value="E85" checked={false} onChange={this.onChangeCheck}/>
+                        <input type="checkbox" className="form-check-input" id="1" value="E85" checked={this.state.checked} onChange={this.onChangeCheck}/>
                         <span>E85</span>
                         <br />
-                        <input type="checkbox" className="form-check-input" value="95" checked={false} onChange={this.onChangeCheck}/>
+                        <input type="checkbox" className="form-check-input" id="2" value="95" checked={this.state.checked} onChange={this.onChangeCheck}/>
                         <span>95</span>
                         <br />
-                        <input type="checkbox" className="form-check-input" value="98" checked={false} onChange={this.onChangeCheck}/>
+                        <input type="checkbox" className="form-check-input" id="3" value="98" checked={this.state.checked} onChange={this.onChangeCheck}/>
                         <span>98</span>
                         <br />
-                        <input type="checkbox" className="form-check-input" value="Biodiesel" checked={false} onChange={this.onChangeCheck}/>
+                        <input type="checkbox" className="form-check-input" id="4" value="Biodiesel" checked={this.state.checked} onChange={this.onChangeCheck}/>
                         <span>Bio Diesel</span>
                         <br />
-                        <input type="checkbox" className="form-check-input" value="Diesel" checked={false} onChange={this.onChangeCheck} />
+                        <input type="checkbox" className="form-check-input" id="5" value="Diesel" checked={this.state.checked} onChange={this.onChangeCheck} />
                         <span>Diesel</span>
+                        <br />
+                        <input type="checkbox" className="form-check-input" id="6" value="HVO100" checked={this.state.checked} onChange={this.onChangeCheck} />
+                        <span>HVO100</span>
                     </label>
                     </div>
                     <br />

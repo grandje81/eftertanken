@@ -9,16 +9,18 @@ import { BrowserRouter as Router, Switch, Route, Link} from 'react-router-dom';
 
 //import Create from './components/createComponent';  
 //import Edit from './components/editComponent';
-import Index from './components/indexComponent';
+//import Index from './components/indexComponent';
+
+
 // Accounts
 import createAccount from './components/createAccountComponent';
-
 import listLogins from './components/listLoginsComponent';
 import editAccount from './components/adminEditComponent';
 
 // Stations
 import CreateStation from './components/CreateStationComponent';
 import EditStation from './components/EditStationComponent';
+import IndexStation from './components/IndexStationComponent';
 // Logins
   import Login from './components/loginComponent';
 
@@ -59,7 +61,7 @@ class App extends Component {
           <Switch>
             <Route exact path='/create' component={ CreateStation } />
             <Route path='/edit/:id' component={ EditStation } />
-            <Route path='/station/index' component={ Index } />
+            <Route path='/station/index' component={ IndexStation } />
             <Route path='/user/login' component={ Login } /> 
             <Route path='/admin/logins' component={ listLogins } />
             <Route path='/admin/editAccount/:id' component={ editAccount } />

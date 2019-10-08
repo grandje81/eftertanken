@@ -3,6 +3,7 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import axios from 'axios';
+import { isTemplateElement } from '@babel/types';
 
 
 class TableRow extends Component {
@@ -10,6 +11,10 @@ class TableRow extends Component {
         super(props);
         this.delete = this.delete.bind(this);
     }
+    onChangeCheck(e){
+
+    };
+
     delete() {
         axios.get('http://localhost:4000/station/delete/'+this.props.obj._id)
             .then(res => {
@@ -19,6 +24,11 @@ class TableRow extends Component {
             .catch(err => console.log(err))
     }
   render() {
+      const fueltypes = this.props.obj.station_fueltypes.map((fueltype) =>
+      <li key={fueltype.id}>
+        {fueltype}
+      </li>
+    );
     return (
         <tr>
           <td>
@@ -28,13 +38,7 @@ class TableRow extends Component {
             {this.props.obj.station_city}
           </td>
           <td>
-            {this.props.obj.station_fueltypes.map((data, index) => {
-              return(
-                <p key={index}>
-                  {data}
-                  </p>
-              );
-            })}
+           {fueltypes}
           </td>
           <td>
           <Link to={"/edit/"+this.props.obj._id} className="btn btn-primary">Edit</Link>
