@@ -65,7 +65,7 @@ router.route('/update/:id').post(function (req, res) {
           station.name = req.body.name;
           station.city = req.body.city ;
           station.fueltypes = req.body.fueltypes;
-  
+          
           station.save().then(station => {
             res.json('Update complete');
         })
