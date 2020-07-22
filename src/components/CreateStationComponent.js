@@ -46,7 +46,6 @@ export default class CreateStation extends Component {
         });
         console.log(e.target.value)
     }
-
     onSubmit(e) {
         e.preventDefault();
         const obj = {
